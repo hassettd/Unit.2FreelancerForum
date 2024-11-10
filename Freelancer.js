@@ -18,18 +18,17 @@ const freelancers = [
 //     return sum / price; 
 // } 
 
-const calAve = function (freelancers) { 
-    let sum = 0; 
-     
-    for (let i = 0; i < element.price.length; i++)  
-    sum += element.price[i]; 
-     
-    const average = sum / element.price.length; 
-     
-    console.log(average); 
-     
-    return average; 
-    }; 
+
+function average(price) { 
+    if (price.length === 0) return 0; 
+    const sum = price.reduce((accumulator, currentValue) => accumulator + currentValue, 0); 
+    return sum / price.length; 
+}
+
+const numbers = [25, 51, 43, 81, 43, 76, 47, 72]; 
+const avg = average(numbers); 
+console.log(avg); 
+
 
 const body = document.querySelector("body");
 
@@ -54,8 +53,18 @@ const body = document.querySelector("body");
         div.append(h4);
         div.append(h5);
         section.append(div);
+        
+        
     }
     body.append(section);
+
+    const div2 = document.createElement("div2");
+        div2.innerText = (average(element.price));
+        div2.style.display ="grid";
+        const h3 = document.createElement("h3");
+        h3.innerText = element.h5;
+        const h5 =document.createElement("h5");
+        section.append(div2);
 };
 
 init();
